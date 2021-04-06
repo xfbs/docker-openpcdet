@@ -4,6 +4,10 @@ This is a docker container with OpenPCDet installed. To build or use this, you
 need to install docker, as well as nvidia-docker to pass the GPU through to the
 container.
 
+It is available on the Docker hub as `xfbs/openpcdet`. You can use docker pull to fetch it for use on your machine.
+
+    docker pull xfbs/openpcdet
+
 ## Setup
 
 Install docker as per the instructions on [docs.docker.com](https://docs.docker.com/engine/install/ubuntu/). Install nvidia-docker as per the instructions on [docs.nvidia.com](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker). Make sure that your user is able to use docker by adding it to the `docker` group, if not already there:
@@ -18,7 +22,16 @@ You need to figure out the CUDA compute capability of your GPU. You can use [thi
 
 ## Building
 
-Usage:
+Before compiling, make sure that you have checked out the Git repository and submodules recursively. To ensure that is the case, run this.
 
     git submodule update --init --recursive
-    docker build .
+
+To build the container, you can run the Docker build command from this repository.
+
+    docker build . -t openpcdet
+
+You might want to check what CUDA compute capability you require. That is, the CUDA extensions in OpenPCDet are normally built for the GPU detected during installation, however for this Docker container, the GPU is not available during build time. You can override the CUDA compute capabilities using the `--build-arg TORCH_CUDA_ARCH_LIST=XYZ` flag.
+
+## License
+
+MIT.
