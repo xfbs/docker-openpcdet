@@ -26,7 +26,7 @@ RUN wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && ./llvm.sh 10
 # and there is a llvm-config binary available, so we have to symlink it here.
 RUN ln -s /usr/bin/llvm-config-10 /usr/bin/llvm-config
 
-ENV TORCH_CUDA_ARCH_LIST="7.5"
+ARG TORCH_CUDA_ARCH_LIST="5.2 6.0 6.1 7.0 7.5+PTX"
 
 # Install OpenPCDet
 COPY OpenPCDet /tmp/OpenPCDet
