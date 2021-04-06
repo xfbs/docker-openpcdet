@@ -5,7 +5,7 @@ RUN apt update
 RUN apt install -y python3 python3-pip apt-transport-https ca-certificates gnupg software-properties-common wget git ninja-build libboost-dev build-essential
 
 # Install PyTorch
-RUN pip3 install torch==1.5
+RUN pip3 install torch==1.5 torchvision==0.6.0
 
 # Install CMake
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - > /etc/apt/trusted.gpg.d/kitware.gpg
