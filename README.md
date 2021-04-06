@@ -14,6 +14,10 @@ Reboot your machine for the change to take effect (or restart your X server). En
 
 Make sure you have the NVidia drivers installed from [developer.nvidia.com](https://developer.nvidia.com/cuda-downloads). If you use Ubuntu, install the Deb version of them. Reboot your system to make sure you are using the NVidia drivers. You need to use at least version 10.1.
 
+You need to figure out the CUDA compute capability of your GPU. You can use [this chart](https://developer.nvidia.com/cuda-gpus) to look it up.
+
+## Building
+
 Usage:
 
     git submodule update --init --recursive
