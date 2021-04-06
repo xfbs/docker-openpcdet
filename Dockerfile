@@ -16,3 +16,4 @@ RUN apt-get update && apt install -y cmake libboost-dev build-essential
 COPY spconv /tmp/spconv
 WORKDIR /tmp/spconv
 RUN python3 setup.py bdist_wheel
+RUN pip3 install dist/*.whl
