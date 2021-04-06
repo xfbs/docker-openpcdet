@@ -15,6 +15,7 @@ RUN apt-get update && apt install -y cmake
 # Install spconv
 COPY spconv /tmp/spconv
 WORKDIR /tmp/spconv
+ENV SPCONV_FORCE_BUILD_CUDA=1
 RUN python3 setup.py bdist_wheel
 RUN pip3 install dist/*.whl
 
